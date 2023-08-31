@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+    <style>
+        *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style: none;
+    border: none;
+    outline: none;
+    font-family: sans-serif
+}
+:root{
+    --color-white: white;
+    --color-primary: brown;
+    --color-dark: black;
+    --color-white-bg: rgb(71, 41, 15);
+    --box-shadow: rgba(0,0,0,0.3);
+    --transition: .4s ease;
+}
+.dark-Mood{
+    --color-dark: white;
+    --color-white-bg: black;
+    --box-shadow: rgba(0,0,0,0.7);
+}
+body {
+    background: linear-gradient(greenyellow,pink,rgb(174, 110, 201),peachpuff,rgb(221, 85, 178));
+    color: var(--color-dark)
+}
+img{
+    display: block;
+    width: 100%;
+}
+.btn{
+    display: inline-block;
+    width: fit-content;
+    padding: 1.2rem 2.2rem;
+    background: var(--color-primary);
+    color: var(--color-white);
+    border-radius: .4rem;
+    box-shadow: 0 0.2rem 0.4rem var(--box-shadow);
+    font-size: 17px;
+    font-weight: 500;
+    letter-spacing: .7px;
+    border: 2px solid transparent;
+    cursor: default;
+    transition: var(--transition);
+}
+.btn:hover{
+    border-color: var(--color-primary);
+    background: transparent;
+    color: var(--color-primary);
+}
+.container{
+    max-width: 1380px;
+    width: 90%;
+    margin: 0 auto;
+}
+/* ............start navbar............*/
+nav{
+    width: 100%;
+    position: fixed;
+    height: 5rem;
+    top: 0;
+    left: 0;
+    z-index: 11;
+    display: grid;
+    place-items: center;
+}
+.nav-scroll{
+    background: black;
+    box-shadow: 0 .5rem .5rem rgba(0,0,0,0.3);
+}
+.nav-container{
+    display: flex;
+    height: 100%;
+    align-items: center;
+    justify-content: space-between;
+}
+.nav-container .logo h3{
+    font-weight: 600;
+    font-size: 1.9rem;
+    color: mediumblue;
+    cursor: default;
+}
+.nav-container .navlinks{
+    display: flex;
+    align-items: center;
+    gap: 3.4rem;
+}
+.nav-container .navlinks li a{
+    color: blue;
+    font-size: 16px;
+    font-weight: 500;
+    position: relative;
+}
+.nav-container .navlinks li .active::before{
+    content: '';
+    position: absolute;
+    bottom: -6px;
+    left: 0;
+    width: 100%;
+    height: .1rem;
+    background: var(--color-white);
+}
+.nav-container .navlinks .Mood-icon{
+    font-size: 1.4rem;
+    display: inline-block;
+    color: var(--color-white);
+    transition: var(--transition);
+    background: transparent;
+}
+
+.nav-container .navlinks .Sun {
+    display: none;
+    
+}
+header{
+    display: flex;
+    align-items: center;
+    min-height: 100vh;
+    position: relative;
+}
+.header-container{
+    display: grid;
+    grid-template-columns: 44% auto;
+}
+.header-left{
+    margin-top: 5rem;
+    position: relative;
+    z-index: 1;
+    font-size: 25px;
+}
+.header-container h3{
+    font-size: 2.6rem;
+    font-weight: 700;
+    line-height: 110%;
+}
+.header-container h1{
+    font-size: 3.4rem;
+    font-weight: 700;
+    margin-bottom: .2rem;
+}
+.header-container p{
+    font-size: 20px;
+}
+
+
+/*....................header right..............*/
+.profession-content{
+    position: absolute;
+    width: 768px;
+    height: 100%;
+    transform: translateY(-50%);
+    top: 50%;
+    right: 0;
+    pointer-events: none;
+    overflow: hidden;
+}
+.profession-box{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    right: 0;
+    top: 0;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: circleAnimation 10s ease-out infinite;
+}
+@keyframes circleAnimation {
+    0%,25%{
+        transform: rotate(0deg);
+    }
+    30%,55%{
+        transform: rotate(-120deg);
+    }
+    60%,90%{
+        transform: rotate(-240deg);
+    }
+    100%{
+        transform: rotate(-360deg);
+    }
+}
+.overlay{
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 0;
+    width: 0;
+    border-top: 50vh solid var(--color-primary);
+    border-bottom: 50vh solid var(--color-primary);
+    border-left: 384px solid transparent;
+    border-right: 384px solid var(--color-primary);
+}
+.header-img {
+    position: absolute;
+    bottom: 0;
+    right: -7.5rem;
+    width: 100;
+    background: black;
+}
+#About{
+    padding-top: 5%;
+}
+.about-container{
+    display: grid;
+    grid-template-columns: 36% 56%;
+    gap: 8%;
+    align-items: center;
+}
+.about-img{
+    position: absolute;
+    top: 0;
+    overflow: hidden;
+    width: 26rem;
+    height: 26rem;
+    aspect-ratio: 1/1;
+    border-radius: .4rem;
+}
+.about-right h2{
+    color: var(--color-primary);
+    font-size: 3.5rem;
+}
+.about-right h3{
+    margin: .5rem 0;
+    font-size: 1.5rem;
+}
+.about-right p{
+    margin-bottom: 2rem;
+    font-size: 19px;
+    font-family: serif;
+    font-size: 30px;
+}
+#Skills{
+    padding-top: 5%;
+}
+.skills-img {
+    float: right;
+  }
+.skill-right h2{
+    text-align: center;
+    color: var(--color-primary);
+    font-size: 3.5rem;
+}
+.skill-right h3{
+    text-align: center;
+    font-size: 1.4rem;
+    font-family: serif;
+}
+.skill-right p{
+    margin-bottom: .6rem;
+    font-size: 25px;
+    font-family: sans-serif;
+}
+#projects{
+    padding-top: 5%;
+}
+.project-img {
+    float: left;
+  }
+.project-right h2{
+    text-align: center;
+    color: var(--color-primary);
+    font-size: 3.5rem;
+}
+.project-right h3{
+    text-align: center;
+    font-size: 1.4rem;
+    font-family: serif;
+}
+.project-right p{
+    margin-bottom: .6rem;
+    font-size: 30px;
+    font-family: sans-serif;
+}
+
+#Resume {
+    padding: 5% 0;
+    color: var(--color-dark);
+    text-align: center;
+}
+
+.resume-container {
+    max-width: 800px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.resume-content {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.resume-content h2 {
+    color: brown;
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+}
+
+.resume-content p strong {
+    font-size: 1.5rem;
+    
+}
+
+.resume-content .btn {
+    margin-top: 1rem;
+    background-color: var(--color-primary);
+    color: var(--color-white);
+    padding: 0.8rem 1.5rem;
+    font-size: 1.2rem;
+    border-radius: 0.4rem;
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+.resume-content .btn:hover {
+    background-color: transparent;
+    color: var(--color-primary);
+    border-color: var(--color-primary);
+}
+
+
+
+#Contact{
+    padding-top: 0%;
+}
+.contact-container h2{
+    text-align: center;
+    color: var(--color-primary);
+    font-size: 3.5rem;
+    font-family: sans-serif;
+}
+.contact-container p{
+    margin-bottom: .6rem;
+    font-size: 100px;
+    font-family: sans-serif;
+    font-size: 30px;
+    font-weight: 500;
+}
+    </style>
+    
+</head>
+<body>
+   <nav>
+    <div class="container nav-container">
+        <a href="" class="logo"><h3>PORTFOLIO</h3></a>
+        <u1 class="navlinks">
+            <li><a href="#Home">Home</a></li>
+            <li><a href="#About">About</a></li>
+            <li><a href="#Skills">Skills</a></li>
+            <li><a href="#projects">projects</a></li>
+            <li><a href="#Contact">Contact</a></li>
+            <li><a href="#Resume">Resume</a></li>
+            
+        </u1>
+
+    </div>
+   </nav>
+   <header id="Home">
+    <div class=".container.header-container">
+        <div class="header-left">
+            <h3>Hello, everyone I'm</h3>
+            <h2>Bollavarapu Sucharitha</h2>
+            <p>
+                <br>I am pursuing a Bachelor of Technology in<br> Rajeev Gandhi Memorial College of <br>Engineering and Technology.<br> I am an intern at CodSoft.
+            </p>
+        </div>
+       
+        
+        <div class="header-right">
+           
+            <div class="header-img">
+                <img src="tec.webp">
+            </div>
+        </div>
+    </div>
+   </header>
+   <section id="About">
+    <div class="container about-container">
+        <div class="about-left">
+            <div class="about-img"></div>
+            <img src="https://i.thecartoonist.me/denise-cartoon.png">
+        </div>
+        <div class="about-right">
+            <h2>About Me</h2>
+            <h3>I am here to tell about me to you!</h3>
+            <p>
+                I completed my Secondary School Certificate (SSC) <br>from Sri Chaitanya E.M School, achieved GPA:10.0 <br>I pursued my intermediate education at <br>Rao's Junior College, achieving a CGPA of 8.7.
+            </p>
+            <p>
+                Currently, I am pursuing a Bachelor of <br>Technology (B.Tech) degree at RGMCET, <br>with an ongoing CGPA of (*8.4) till third year.<br>I am currently undertaking an internship at Codsoft.
+            </p>
+            <a href="" class="btn">Read More</a>
+        </div>
+
+   </section>
+   <section id="Skills">
+    <div class="container container-skills">
+        <div class="skill-left">
+            <div class="skills-img">
+                <img src="https://eslbrains.com/wp-content/uploads/2022/07/Skills-for-the-job-473x381.png">
+            </div>
+        </div>
+    </div>
+    <div class="skill-right">
+        <h2>Skills</h2>
+        <h3 class="tech">Technical Skills:</h3>
+        <p>
+            1. Programming languages(PYTHON, C, Biginner in JAVA)<br>
+            2. Web development(HTML,CSS)<br>
+            3. SQL    
+        </p>
+        <h3>Soft Skills:</h3>
+        <p>
+            1. Teamwork and collaboration<br>
+            2. Communication skills<br>
+            3. Problem-solving and critical thinking<br>
+            4. Flexibility<br>
+            5. Time management<br>
+            
+        </p>
+    </div>
+   </section>
+   <section id="projects">
+    <div class="container project-container">
+        <div class="project-left">
+            
+        </div>
+    </div>
+    <div class="project-right">
+        <h2>Project</h2>
+        <h3>Student-Performance-Tracker</h3>
+        <p>
+            <b>Student-Performance-Tracker :</b> <br>In this project student can track <br> their day to day performance  
+            <br> using HTML, CSS, Visualize<br>
+           ● <b>Description:</b><br>
+            Student Performance tracker is <br> a project which is developed for <br> students to manage, analyze and 
+            <br> visualize their day to day performance <br> based  on their test results and attendence. <br> It 
+            provides functionalities for <br> student, admin and super admin.
+        </p>
+    </div>
+   </section>
+
+   <section id="Resume">
+    <div class="container resume-container">
+        <div class="resume-content">
+            <h2>Resume</h2>
+            <p><strong>You can download my resume in PDF format:</strong> <a href="file:///C:/Users/lenovo/Documents/Bollavarapu%20Sucharitha.pdf" download class="btn">
+                Download Resume</a></p>
+        </div>
+    </div>
+</section>
+<section id="Contact">
+    <div class="container contact-container">
+        <h2>Contact</h2>
+        <p>Phone: <a href="tel:123456789">___________</a></p>
+        <p>Email: <a href="mailto:example@example.com">__________@gmail.com</a></p>
+        <p>Nandyal,Nandyal District</p>
+    </div>
+  </section>
+   
+</body>
+</html>
